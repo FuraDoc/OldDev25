@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Всякие формы</title>
+</head>
+<body>
+    <h1>Регистрация</h1>
+    <form action="/regisrer" method="post">
+        <!-- Личная информация-->
+        <fieldset>
+            <legend>Личная информация</legend>
+            <label for="fullname">ФИО: </label>
+            <input type="text" id="fullname" name="fullname" required>
+             <br>
+             <br>
+            <label for="birthday">Дата рождения:</label>
+            <input type="text" id="birthday" name="birthday"  >
+            <br>
+            <br>
+            <label>Пол:</label>
+            <br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Мужской</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Женский</label>
+            <input type="radio" id="Helicopter" name="gender" value="Helicopter">
+            <label for="Helicopter">Боевой вертолет</label> <br><br>
+        </fieldset>
+         <!--Контактная информация-->
+         <fieldset>
+            <legend>Контактная информация</legend>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required> 
+            <br>
+            <br>
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7-988-417-39-00">
+            <br>
+            <br>
+            <label for="country">Страна</label>
+            <select name="country" id="country">
+                <option value="ru">Россия</option>
+                <option value="by">Беларусь</option>
+                <option value="ab">Абхазия</option>
+                <option value="ua">Украина</option>
+                <option value="kz">Казахстан</option>
+                <option value="ch">Китай</option>
+            </select> 
+            <br>
+            <br>
+         </fieldset>
+         <!--Увлечения-->
+         <fieldset>
+            <legend>Увлечения</legend>
+            <input type="checkbox" id="sports" name="interests" value="sports">
+            <label for="sports">Спорт</label>
+            <br>
+            <input type="checkbox" id="music" name="interests" value="music">
+            <label for="music">Музыка</label>
+            <br>
+            <input type="checkbox" id="games" name="interests" value="games">
+            <label for="games"> Игры</label>
+            <br>
+            <input type="checkbox" id="sleep" name="interests" value="sleep">
+            <label for="sleep">Сон</label>
+            <br>
+            <input type="checkbox" id="procrastination" name="interests" value="procrastination">
+            <label for="procrastination">Прокрастинация</label>
+            <br>
+            <br>
+             <label for="bio">Писать сюда:</label> <br>
+             <textarea name="bio" id="bio" rows="4" cols="50" placeholder="Расскажи о себе..."></textarea>
+         </fieldset>
+         <!-- Кнопки??? Да,кнопки! Что не ясно?-->
+          <br>
+          <input type="submit" value="Зарегистрироваться">
+          <button type="reset">Очистить форму </button>
+</form> 
+     
+    <h2>Форма обратной связи</h2>
+    <form action="/feedback" method="post">
+    <fieldset>
+        <legend>Заполните форму</legend>  
+        <label for="fullname">ФИО: </label>
+        <input type="text" id="fullname" name="fullname" required>
+        <br>
+        <br>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required> 
+        <br>
+        <br>
+        <label for="feedbacktheme">Тема обращения</label>
+        <select name="feedbacktheme" id="feedbacktheme">
+            <option value="error">Технические проблемы</option>
+            <option value="Cooperation">Сотрудничество</option>
+            <option value="Hello">Приветствие</option>
+            <option value="Offer">Предложения</option>
+            <option value="NeedHelp">Нужна помощь</option>
+            <option value="OtherTheme">Другая тема</option>
+        </select> <!-- Закрывающий тег добавлен здесь -->
+        <br>
+        <br>
+        <label for="review">Ваш отзыв:</label> <br>
+        <textarea id="review" name="review" rows="5" cols="40" placeholder="Напишите ваш отзыв здесь..." required></textarea> 
+        <br>
+        <br>
+        <input type="submit" value="Отправить отзыв">     
+    </fieldset>      
+</form>    
+</body>
+</html>

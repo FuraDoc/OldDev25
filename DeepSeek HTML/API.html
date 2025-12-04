@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продвинутый HTML</title>
+</head>
+<body>
+    <h1>Продвинутый HTML — API, микроразметка и современные техники</h1>
+    <p>Geolocation API — определение местоположения</p>
+    <button onclick="getLocation()">Определить мое местоположение</button>
+    <div id="location"></div>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById("location").innerHTML = 
+                    "Geolocation не поддерживается вашим браузером.";
+            }
+        }
+
+        function showPosition(position) {
+            const locationDiv = document.getElementById("location");
+            locationDiv.innerHTML = `
+                <h3>Ваше местоположение:</h3>
+                <p>Широта: ${position.coords.latitude}</p>
+                <p>Долгота: ${position.coords.longitude}</p>
+                <p>Точность: ${position.coords.accuracy} метров</p>
+            `;
+        }
+
+        function showError(error) {
+            const errors = {
+                1: 'Доступ запрещен',
+                2: 'Местоположение недоступно',
+                3: 'Время ожидания истекло'
+            };
+            document.getElementById("location").innerHTML = 
+                "Ошибка: " + errors[error.code];
+        }
+    </script>
+    <p>Local Storage API — хранение данных</p>
+    <h2>Local Storage Demo</h2>
+    <input type="text" id="userInput" placeholder="Введите текст">
+    <button onclick="saveData()">Сохранить</button>
+    <button onclick="loadData()">Загрузить</button>
+    <button onclick="clearData()">Очистить</button>
+    <div id="output"></div>
+
+    <script>
+        function saveData() {
+            const input = document.getElementById('userInput').value;
+            localStorage.setItem('userData', input);
+            document.getElementById('output').innerHTML = 
+                'Данные сохранены!';
+        }
+
+        function loadData() {
+            const data = localStorage.getItem('userData');
+            document.getElementById('output').innerHTML = 
+                data ? `Сохраненные данные: ${data}` : 'Нет сохраненных данных';
+        }
+
+        function clearData() {
+            localStorage.removeItem('userData');
+            document.getElementById('output').innerHTML = 
+                'Данные очищены!';
+        }
+    </script>
+    
+</body>
+</html>

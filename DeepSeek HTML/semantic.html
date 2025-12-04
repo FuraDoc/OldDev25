@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семантическая верстка - это круто!</title>
+</head>
+<body>
+    <header>
+        <h1>Блог о моем обучении</h1>
+         <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#articles">Статьи</a></li>
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+         </nav>
+    </header>
+    <!--Основное содержимое -->
+    <main>
+        <!--Статья 1-->
+        <article>
+            <header>
+                <h2>Введение в HTML</h2>
+                <p>Опубликовано: <time datetime="2025-11-23">в ноябре 2025</time></p>
+             </header>
+             <section>
+                <h3>   Семантические теги  </h3>
+                <p> Говорят, что тегов очень много, но я пока знаю только некоторые из них. <br> Пока.</p>
+                <figure>
+                    <img src="HTML5-semantin.png" alt="Структура веб-страницы" width=" 400px">
+                    <figcaption>Типичная структура веб-страницы</figcaption>
+                </figure>
+             </section>
+             
+        </article>
+    </main>
+    <!--Боковая панель, тут я не очень понял, что то она не стала боковой-->
+    <aside>
+        <section>
+            <h3>Обо мне</h3>
+            <p>Завтра на работу,пора бы спать..</p>
+        </section>
+        <section>
+            <h3>У меня есть 2 котика))</h3>
+            <ul>
+                <li>Кот Семён</li>
+                <li>Кошка Пупа (Вообще то она Мальта)</li>
+            </ul>
+        </section>
+    </aside>
+    <!--Семантическая микроразметка Shema.org-->
+    <p><strong>Микроразметка Shema.org</strong></p>
+    <article itemscope itemtype="https://schema.org/Article">
+    <header>
+        <h2 itemprop="headline">Туда и обратно</h2>
+        <p>Автор: <span itemprop="author">Бильбо Беггинз</span></p>
+        <time itemprop="datePublished" datetime="3003-01-02">2 января 3003</time>
+        <div itemprop="articleBody">
+        <p style="background-color: antiquewhite;">"Жил-был в норе под землей хоббит. <br>
+             Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей <br>
+              и противно пахнет плесенью, но и не в сухой песчаной голой норе, где не на что сесть и нечего съесть. <br>
+               Нет, нора была хоббичья, а значит – благоустроенная..."</p>
+    </div>
+    </header>
+    <h3>Продвинутые элементы форм</h3>
+    <section style="background-color: rgb(149, 105, 190); border-radius: 5px;">
+       <label for="browser">Выберите браузер:</label>
+       <input list="browsers" id="browser" name="browser">
+          <datalist id="browsers">
+             <option value="Chrome">
+             <option value="Firefox">
+             <option value="Safari">
+             <option value="Edge">
+             <option value="Opera">
+          </datalist>
+    </section>
+    <br>
+    <br>
+    <fieldset style="background-color: #c0ab90; border-radius: 5px;">
+    <legend><strong>Контактная информация</strong></legend>
+    
+    <label for="fname">Имя:</label>
+    <input type="text" id="fname" name="fname" pattern="[A-Za-z]{3,}" 
+           title="Минимум 3 буквы" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" 
+           placeholder="example@mail.com" required>
+    
+    <label for="url">Ваш сайт:</label>
+    <input type="url" id="url" name="url" 
+           placeholder="https://example.com">
+</fieldset>
+    <footer>
+            <p>теги: <Mark>hTml</Mark>,<Mark>семантика</Mark>,<mark>верстка</mark></p>
+             <p>2025 мой блог об обучении Html</p>
+             <address> Контакты: <a href="mailto:fura.doc01@gmail.com">Email</a>
+             </address>
+
+     </footer>
+</body>
+</html>

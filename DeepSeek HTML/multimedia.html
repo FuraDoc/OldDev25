@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мультимедийная гплерея</title>
+    <style>
+        .media-container {
+            margin: 20px 0;
+            padding: 20px;
+            border: 5px solid #7accaf;
+            border-radius: 10px;
+            background-color: rgb(3, 72, 112);
+        }
+        h2 {
+            color: #0a312f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Мультимедийная галетрея</h1>
+        <nav>
+            <a href="#video">видео</a>
+            <a href="#audio">аудио</a>
+            <a href="#maps">Карты</a>
+            <a href="youtube">Youtube</a>
+        </nav>
+    </header>
+    <h2>Базовый и расширенный синтаксис</h2>
+    <!--Примеры от ИИ, Базовый  и расширенный синтаксис-->
+    <div> 
+        <section id="YouTube video" class="media-container">
+        <video controls width="600">
+    <source src="100 Greatest Internet Videos.mp4" type="video/mp4">
+    <source src="video.webm" type="video/webm">
+    Ваш браузер не поддерживает видео тег.
+</video>
+<br>
+<br>
+<video controls width="800" height="450" 
+       poster="preview.jpg"
+       preload="metadata"
+       muted>
+    <source src="nature.mp4" type="video/mp4">
+    <source src="nature.webm" type="video/webm">
+    <track kind="subtitles" src="subtitles_ru.vtt" srclang="ru" label="Русские">
+    <p>Ваш браузер не поддерживает HTML5 видео. 
+       <a href="nature.mp4">Скачайте видео</a>.
+    </p>
+</video>
+</section>
+    </div>
+    <div>
+        <h1>Встраивание YouTube видео</h1>
+        <h2>Через iFrame</h2>
+        <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/КОД_ВИДЕО"
+                frameborder="0"
+                title="YouTube video player"
+                allow="accelerometr; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        <h2>Через объект</h2>
+
+        <object width="560" height="315"
+                data="https://vkvideo.ru/video-139787101_456244218">
+                
+        </object>    
+    </div>
+    <div>
+        <h2>Карты Google Maps</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.372789945966!2d37.61729991582995!3d55.
+        755826680552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a50b315e573%3A0xa886bf5a3d9b2e68!
+        2z0JzQvtGB0LrQstCw!5e0!3m2!1sru!2sru!4v1234567890"
+                width="600"
+                height="450"
+                style="border: 0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" >
+            </iframe>
+    </div>
+    <div>
+        <h2>Встраивание PDF файлов </h2>
+        <embed src="receipt.pdf" type="application/pdf" width="100%" height="600px">      
+    </div>
+    <div>
+        <h2>Элемент CANVAS для графики </h2>
+        <h3> HTML5 canvas позволяет рисовать элемент JavaScript</h3>
+        <canvas id="myCanvas" width="400" height="200" style="border: 1px solid #0f5688;">
+            Ваш говнобраузер не поддерживает этот элемент.
+        </canvas>
+     <script>
+       const canvas = document.getElementById('myCanvas');
+       const ctx = canvas.getContext('2d');
+       ctx.fillStyle = 'blue';
+       ctx.fillRect(20, 20, 120, 120);
+     </script>
+    </div>
+    <!--Еще немного Canvas, потому что пока непонятно нифига-->
+    <section class="media-container" >
+        <h2>Интерактивная графика</h2>
+        <canvas id="demoCanvas" width="400" height="200" style="border: 1px solid #ccc; border-radius: 4px;">
+        Элемент не поддерживается    
+        </canvas> 
+        <br>
+        <button onclick="drawRectangle()">Нарисовать прямоугольник </button> 
+        <button onclick="drawCircle()">Нарисовать круг</button>
+        <button onclick="drawCanvas()">Очистить</button>  
+    <script>
+        // Простая работа с Canvas
+        const Canvas = document.getElementById('demoCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function drawRectangle() {
+            ctx.fillStyle = 'lightblue';
+            ctx.fillRect(50, 50, 100, 80);
+        }
+
+        function drawCircle() {
+            ctx.fillStyle = 'lightcoral';
+            ctx.beginPath();
+            ctx.arc(300, 100, 40, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Рисуем что-то при загрузке
+        drawRectangle();
+    </script>    
+    </section>
+    
+    <main>
+        <!--Раздел с локальным видео-->
+        <section id="video" class="media-container">
+            <h2>локальные видео</h2>
+            <video controls width="100%" max-wight="800"
+            preload="metadata">
+        <source src="100 Greatest Internet Videos.mp4" type="video/mp4">
+        <track kind="subtitles" src="sublitles/vtt" srclang="ru" label="Русские"> 
+        <p>Ваш браузер не поддерживает это видео
+        <a href="100 Greatest Internet Videos.mp4">Скачать видео</a>
+        </p>
+        <p><small>Пример видео с прикольчиками, элементами кправления и субтитрами(наверное)</small></p>
+        </video>
+        </section>
+        <div>
+         <!--Раздел с аудио-->
+         <section id="audio" class="media-container">
+            <h2>Немного музыки</h2>
+            <audio controls style="width: 100%; max-width: 500px;">
+            <source src="Digby Jones - Havana Highway.mp3" type="audio/mpeg">
+            <p>Ваш браузер не поддерживает аудио элементы.
+            <a href="Digby Jones - Havana Highway.mp3.asd">Скачать аудио</a>
+            </p>
+            </audio>
+
+         </section>   
+    </main>
+</body>
+</html>

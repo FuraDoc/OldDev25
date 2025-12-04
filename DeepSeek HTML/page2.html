@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учимся CSS</title>
+    <style>#content p { color: red; }
+    .text { color: blue; }
+    p { color: green; }
+    .special { color: orange; }
+</style>
+<style>
+.box1 {
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 10px;
+  background-color: aquamarine;
+  border-radius: 80px;
+  /* box-sizing не задаем */
+} 
+.box2 {
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 10px;
+  box-sizing: border-box;
+  background-color: aquamarine;
+  border-radius: 50px;
+}
+</style>
+</head>
+<body>
+    <div id="content" class="page">
+    <p class="text">Первый абзац</p>
+    <p class="text special">Второй абзац</p>
+</div>
+<div class="box1">
+    <p>Первый блок, стандартная модель</p>
+</div>
+<div class="box2">
+    <p>Второй блок, border-box модель</p>
+</div>
+    
+    
+</body>
+</html>
