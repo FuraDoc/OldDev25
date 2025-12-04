@@ -1,0 +1,783 @@
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Цветовая палитра - яркая и смелая */
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --bg-card: #2d2d2d;
+    --accent-primary: #ff6b35;
+    --accent-secondary: #00d4ff;
+    --accent-tertiary: #9c27b0;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --border-color: #404040;
+    
+    /* Тени и эффекты */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.6);
+    
+    /* Анимации */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== ТИПОГРАФИЯ ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 3rem;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 3px;
+}
+
+h3 {
+    font-size: 1.75rem;
+    color: var(--accent-secondary);
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* ===== ШАПКА И НАВИГАЦИЯ ===== */
+header {
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 3px solid var(--accent-primary);
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    padding: 1.5rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.logo h1 {
+    margin-bottom: 0.5rem;
+}
+
+.logo p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.main-menu {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    background: var(--bg-card);
+    padding: 0.5rem;
+    border-radius: 15px;
+    border: 2px solid var(--border-color);
+}
+
+.main-menu a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    transition: all var(--transition-normal);
+    position: relative;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.main-menu a:hover {
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+main {
+    padding: 4rem 0;
+}
+
+section {
+    margin-bottom: 5rem;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: 25px;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+}
+
+/* ===== СЕКЦИЯ "ОБО МНЕ" ===== */
+#about {
+    text-align: center;
+}
+
+.main-photo {
+    margin-bottom: 3rem;
+}
+
+.main-photo img {
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: var(--shadow-xl);
+    border: 6px solid var(--bg-primary);
+    outline: 4px solid var(--accent-primary);
+    transition: all var(--transition-normal);
+}
+
+.main-photo img:hover {
+    transform: scale(1.05);
+    outline-color: var(--accent-secondary);
+}
+
+.main-photo figcaption {
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.life-quote {
+    background: var(--bg-card);
+    padding: 3rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+    font-style: italic;
+    position: relative;
+    border: 2px solid var(--accent-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.life-quote::before {
+    content: '"';
+    font-size: 6rem;
+    color: var(--accent-primary);
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    opacity: 0.3;
+    line-height: 1;
+}
+
+/* ===== СЕТКА ОБРАЗОВАНИЯ ===== */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.education-item {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 2px solid var(--border-color);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.education-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.education-item:hover::before {
+    left: 100%;
+}
+
+.education-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-primary);
+}
+
+.education-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.education-details p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* ===== ТАБЛИЦА ОПЫТА ===== */
+.experience-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background: var(--bg-card);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
+}
+
+.experience-table caption {
+    caption-side: bottom;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+}
+
+.experience-table th,
+.experience-table td {
+    padding: 1.5rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.experience-table th {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--bg-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.experience-table tr:last-child td {
+    border-bottom: none;
+}
+
+.experience-table tr:hover {
+    background: rgba(255, 107, 53, 0.05);
+}
+
+/* ===== СЕТКА УВЛЕЧЕНИЙ ===== */
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.hobby-item {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 2px solid var(--border-color);
+    transition: all var(--transition-normal);
+    text-align: center;
+}
+
+.hobby-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-secondary);
+}
+
+.hobby-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    border: 2px solid var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.hobby-item:hover img {
+    border-color: var(--accent-secondary);
+}
+
+.hobby-item ul {
+    list-style: none;
+    margin-top: 1.5rem;
+    text-align: left;
+}
+
+.hobby-item li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 2rem;
+}
+
+.hobby-item li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-weight: bold;
+}
+
+.hobby-item li:last-child {
+    border-bottom: none;
+}
+
+/* ===== ГАЛЕРЕЯ СЕМЬИ ===== */
+.family-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.family-member {
+    text-align: center;
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 25px;
+    transition: all var(--transition-normal);
+    border: 2px solid var(--border-color);
+    position: relative;
+}
+
+.family-member::before {
+    content: '❤️';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: var(--bg-primary);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    border: 3px solid var(--accent-primary);
+    font-size: 1.2rem;
+}
+
+.family-member:hover {
+    transform: translateY(-8px) rotate(1deg);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-tertiary);
+}
+
+.family-member img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--bg-primary);
+    outline: 4px solid var(--accent-tertiary);
+    margin-bottom: 1.5rem;
+    transition: all var(--transition-normal);
+}
+
+.family-member:hover img {
+    outline-color: var(--accent-secondary);
+}
+
+.family-member h3 {
+    color: var(--accent-tertiary);
+    margin-bottom: 1rem;
+}
+
+/* ===== СИЛЬНЫЕ И СЛАБЫЕ СТОРОНЫ ===== */
+.strengths, .weaknesses {
+    background: var(--bg-card);
+    padding: 3rem;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    border: 2px solid var(--border-color);
+    position: relative;
+}
+
+.strengths {
+    border-left: 8px solid var(--accent-secondary);
+}
+
+.weaknesses {
+    border-left: 8px solid var(--accent-primary);
+}
+
+.strengths ul, .weaknesses ul {
+    list-style: none;
+}
+
+.strengths li, .weaknesses li {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border-left: 4px solid transparent;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+.strengths li {
+    border-left-color: var(--accent-secondary);
+}
+
+.weaknesses li {
+    border-left-color: var(--accent-primary);
+}
+
+.strengths li:hover, .weaknesses li:hover {
+    background: var(--bg-card);
+    transform: translateX(10px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===== ФОРМА КОНТАКТОВ ===== */
+.contact-info {
+    background: var(--bg-card);
+    padding: 3rem;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    border: 2px solid var(--border-color);
+    text-align: center;
+}
+
+.contact-info a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    font-size: 1.1rem;
+}
+
+.contact-info a:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+}
+
+.contact-form {
+    background: var(--bg-card);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 2px solid var(--border-color);
+}
+
+.contact-form fieldset {
+    border: none;
+}
+
+.contact-form legend {
+    font-size: 1.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 2rem;
+    padding: 0;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all var(--transition-normal);
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2);
+    background: var(--bg-card);
+}
+
+.form-actions {
+    text-align: center;
+}
+
+button {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--bg-primary);
+    border: none;
+    padding: 1.25rem 3rem;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+}
+
+/* ===== ПОДВАЛ ===== */
+footer {
+    background: var(--bg-primary);
+    border-top: 3px solid var(--accent-primary);
+    padding: 4rem 0 2rem;
+    margin-top: 5rem;
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.footer-menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-menu a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.footer-menu a:hover {
+    color: var(--accent-primary);
+}
+
+.social-links h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.social-links ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-card);
+    border-radius: 25px;
+    transition: all var(--transition-normal);
+    font-weight: 600;
+    border: 2px solid var(--border-color);
+}
+
+.social-links a:hover {
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+.copyright {
+    text-align: right;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.copyright p:first-child {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    header .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .main-menu {
+        justify-content: center;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 2rem 1.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .education-grid,
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .family-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    footer .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .footer-menu {
+        justify-content: center;
+    }
+    
+    .social-links ul {
+        justify-content: center;
+    }
+    
+    .copyright {
+        text-align: center;
+    }
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Задержки для последовательной анимации */
+section:nth-child(1) { animation-delay: 0.1s; }
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.3s; }
+section:nth-child(4) { animation-delay: 0.4s; }
+section:nth-child(5) { animation-delay: 0.5s; }
+section:nth-child(6) { animation-delay: 0.6s; }
+section:nth-child(7) { animation-delay: 0.7s; }
+
+/* ===== SCROLL-BEHAVIOR ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+    background: rgba(255, 107, 53, 0.3);
+    color: var(--text-primary);
+}
+
+::-moz-selection {
+    background: rgba(255, 107, 53, 0.3);
+    color: var(--text-primary);
+}

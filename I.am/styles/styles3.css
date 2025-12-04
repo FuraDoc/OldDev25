@@ -1,0 +1,224 @@
+/* ===== Палитра и базовые переменные ===== */
+:root{
+  --bg:#0f1220;
+  --layer:#171a2b;
+  --layer2:#1e2236;
+  --text:#e9edf7;
+  --muted:#b7bfd6;
+  --accent:#27d0c8;
+  --accent-2:#82fff7;
+  --danger:#ff6b6b;
+  --ok:#25c07a;
+
+  --radius:14px;
+  --r-sm:10px;
+  --shadow:0 12px 34px rgba(0,0,0,.35);
+  --shadow-sm:0 6px 18px rgba(0,0,0,.25);
+  --maxw:1080px;
+}
+
+*,
+*::before,
+*::after{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 600px at 10% -10%, #1a2041 0%, transparent 60%),
+    radial-gradient(800px 500px at 110% 20%, #14203b 0%, transparent 60%),
+    var(--bg);
+  line-height:1.6;
+}
+
+img{ max-width:100%; height:auto; display:block; border-radius:var(--r-sm); }
+a{ color:var(--accent-2); text-decoration:none; }
+a:hover{ color:var(--accent); }
+
+/* ===== Контейнер и отступы ===== */
+.container{
+  max-width:var(--maxw);
+  margin-inline:auto;
+  padding-inline:20px;
+}
+section{ margin-block:64px; }
+h1,h2,h3{ line-height:1.2; margin:0 0 10px; }
+
+/* ===== Хедер и меню ===== */
+header{
+  position:sticky; top:0; z-index:50;
+  background: rgba(15,18,32,.7);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+header .container{
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  padding-block:14px;
+}
+.logo h1{ font-size:clamp(1.3rem,1rem + .9vw,1.9rem); color:#fff; }
+.logo p{ margin:2px 0 0; color:var(--muted); }
+
+.main-menu{
+  list-style:none; display:flex; gap:14px; margin:0; padding:0; flex-wrap:wrap;
+}
+.main-menu a{
+  display:block; padding:10px 14px; font-weight:600; color:var(--text);
+  border-radius:10px; border:1px solid transparent; transition:.2s ease;
+}
+.main-menu a:hover,
+.main-menu a:focus{
+  color:#061416;
+  background:linear-gradient(180deg,var(--accent-2),var(--accent));
+  box-shadow:var(--shadow-sm);
+}
+
+/* ===== Заголовки секций ===== */
+section > h2{
+  font-size:clamp(1.6rem,1.1rem + 1vw,2rem);
+  letter-spacing:.2px;
+}
+
+/* ===== Блок "Обо мне" ===== */
+.main-photo{ margin:18px 0; }
+.main-photo img{
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:var(--shadow);
+}
+figcaption{ color:var(--muted); margin-top:8px; }
+
+.intro-text{
+  background:linear-gradient(180deg,var(--layer),var(--layer2));
+  border:1px solid rgba(255,255,255,.08);
+  padding:24px; border-radius:var(--radius); box-shadow:var(--shadow-sm);
+}
+.life-quote{
+  margin:16px 0 0; padding:14px 16px;
+  background:rgba(39,208,200,.06);
+  border-left:4px solid var(--accent);
+  border-radius:8px; color:#dfefff; font-style:italic;
+}
+
+/* ===== Сетки ===== */
+.education-grid,
+.hobbies-grid,
+.family-gallery{
+  display:grid; gap:18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+}
+
+.education-item,
+.hobby-item,
+.family-member{
+  background:linear-gradient(180deg,var(--layer),var(--layer2));
+  border:1px solid rgba(255,255,255,.08);
+  padding:18px; border-radius:var(--radius); box-shadow:var(--shadow-sm);
+}
+.education-item h3,
+.hobby-item h3,
+.family-member h3{ margin-top:0; }
+
+/* ===== Таблица опыта ===== */
+.experience-table{
+  width:100%; border-collapse:separate; border-spacing:0;
+  background:linear-gradient(180deg,var(--layer),var(--layer2));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
+}
+.experience-table caption{
+  text-align:left; padding:14px; font-weight:700; color:var(--text);
+  background:rgba(39,208,200,.08);
+}
+.experience-table thead th{
+  text-align:left; padding:14px; background:rgba(255,255,255,.06); color:#eaf6ff;
+}
+.experience-table td{
+  padding:14px; border-top:1px solid rgba(255,255,255,.08); color:var(--muted);
+}
+.experience-table tr:nth-child(even) td{ background:rgba(255,255,255,.02); }
+.experience-table tr:hover td{ background:rgba(39,208,200,.06); }
+
+/* ===== Достижения / Недостатки ===== */
+.strengths, .weaknesses{
+  background:linear-gradient(180deg,var(--layer),var(--layer2));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-sm);
+}
+.strengths ul, .weaknesses ul{ margin:10px 0 0; padding-left:18px; }
+.strengths li::marker{ color:var(--ok); }
+.weaknesses li::marker{ color:var(--danger); }
+
+/* ===== Контакты и формы ===== */
+.contact-info{
+  background:linear-gradient(180deg,var(--layer),var(--layer2));
+  border:1px solid rgba(255,255,255,.08);
+  padding:18px; border-radius:var(--radius);
+}
+
+.contact-form{
+  margin-top:16px;
+  background:linear-gradient(180deg,var(--layer),var(--layer2));
+  border:1px solid rgba(255,255,255,.08);
+  padding:20px; border-radius:var(--radius); box-shadow:var(--shadow-sm);
+}
+.form-group{ display:grid; gap:8px; margin-bottom:14px; }
+label{ font-weight:600; }
+
+input[type="text"],
+input[type="email"],
+select,
+textarea{
+  width:100%; color:var(--text);
+  background:#0f1325;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:10px; padding:12px 14px;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+textarea{ resize:vertical; }
+input:focus, select:focus, textarea:focus{
+  outline:none; border-color:var(--accent);
+  box-shadow:0 0 0 4px rgba(39,208,200,.15);
+}
+
+.form-actions{ margin-top:10px; }
+button{
+  padding:12px 18px; font-weight:700; border:none; border-radius:12px;
+  color:#061416; background:linear-gradient(180deg,var(--accent-2),var(--accent));
+  cursor:pointer; box-shadow:var(--shadow-sm);
+  transition:transform .06s ease, box-shadow .2s ease;
+}
+button:hover{ transform:translateY(-1px); box-shadow:var(--shadow); }
+button:active{ transform:none; }
+
+/* ===== Футер ===== */
+footer{
+  margin-top:64px; border-top:1px solid rgba(255,255,255,.08);
+  background:rgba(15,18,32,.6);
+}
+footer .container{ padding-block:26px; }
+.footer-menu{
+  list-style:none; display:flex; gap:16px; margin:0 0 10px 0; padding:0;
+}
+.footer-menu a{ color:var(--muted); padding:6px 8px; }
+.footer-menu a:hover{ color:var(--accent-2); text-decoration:underline; }
+
+.social-links ul{
+  list-style:none; display:flex; gap:14px; margin:6px 0 0; padding:0;
+}
+.social-links a{
+  color:var(--text); background:#0f1325;
+  border:1px solid rgba(255,255,255,.08);
+  padding:8px 10px; border-radius:8px;
+}
+.social-links a:hover{
+  color:#061416; background:linear-gradient(180deg,var(--accent-2),var(--accent));
+}
+
+/* ===== Адаптив ===== */
+@media (max-width:760px){
+  header .container{ flex-direction:column; align-items:flex-start; gap:10px; }
+  .main-menu{ width:100%; justify-content:space-between; }
+  .main-menu a{ padding:8px 10px; }
+  section{ margin-block:44px; }
+}
